@@ -7,6 +7,8 @@ import {
   Text,
   useColorModeValue,
 } from "@interchain-ui/react";
+// import { cosmos } from 'interchain';
+import { useChain } from '@cosmos-kit/react';
 import { dependencies, products, Project } from "@/config";
 
 // function Product({ name, desc, link }: Project) {
@@ -112,49 +114,74 @@ import { dependencies, products, Project } from "@/config";
 //   );
 // }
 
+import {
+  CHAIN_NAME,
+} from '../../config';
+
+// const { getSigningStargateClient, address, status, getRpcEndpoint } =
+// useChain(CHAIN_NAME);
+
+// let rpcEndpoint = await getRpcEndpoint();
+
+// if (!rpcEndpoint) {
+//   console.log('no rpc endpoint — using a fallback');
+//   rpcEndpoint = `https://rpc.cosmos.directory/${CHAIN_NAME}`;
+// }
+
+// // get RPC client
+// const client = await cosmos.ClientFactory.createRPCQueryClient({
+//   rpcEndpoint,
+// });
+
+// fetch balance
+// const balance = await client.cosmos.bank.v1beta1.balance({
+//   address,
+//   denom: chainassets?.assets[0].base as string,
+// });
+
+function FetchBalance(){
+  return (
+    <div className="fetch-container">
+      <div>
+        <h2>Balance</h2>
+        <p>0</p>
+      </div>
+
+      <button>Fetch Balance</button>
+    </div>
+  )
+}
+
+function SendToken(){
+  return (
+    <div className="sendTokens-container">
+      <button>Send Token</button>
+    </div>
+  )
+}
+
 export function Footer() {
   return (
     <>
       <Box
-        display="grid"
-        gridTemplateColumns={{
-          tablet: "repeat(2, 1fr)",
-          desktop: "repeat(3, 1fr)",
-        }}
-        mb="$16"
-        gap="$12"
-      >
-        {/* {products.map((product) => (
-          // <Product key={product.name} {...product}></Product>
-        ))} */}
-      </Box>
-      <Box
-        display="grid"
-        gridTemplateColumns={{ tablet: "repeat(3, 1fr)" }}
-        gap="$12"
-        mb="$19"
+        display="flex"
+        flexDirection={"column"}
+        alignItems={"center"}
+        justifyContent={"space-around"}
+        gap={"40px"}
+        color={"Black"}
+        height={"230px"}
       >
         {/* {dependencies.map((dependency) => (
           <Dependency key={dependency.name} {...dependency}></Dependency>
         ))} */}
+        <FetchBalance />
+        <SendToken />
       </Box>
       <Box mb="$6">
         <Divider />
       </Box>
-      <Stack
-        direction="horizontal"
-        space="$2"
-        attributes={{
-          justifyContent: "center",
-          opacity: 0.5,
-          fontSize: "$sm",
-        }}
-      >
-        {/* <Text>Built with</Text>
-        <Link href="https://cosmology.zone/" target="_blank">
-          Cosmology
-        </Link> */}
-      </Stack>
+      
     </>
   );
 }
