@@ -54,7 +54,7 @@ function FetchBalance(){
     // const amount = a.multipliedBy(10 ** -exp);
     // setBalance(amount);
     setFetchingBalance(false);
-  };
+};
 
   return (
     <div className="fetch-container">
