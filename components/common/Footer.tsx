@@ -13,6 +13,8 @@ import { useChain } from '@cosmos-kit/react';
 import { dependencies, products, Project, CHAIN_NAME, chainassets,coin } from "@/config";
 import BigNumber from 'bignumber.js';
 
+import { WalletStatus } from '@cosmos-kit/core';
+
 import { GetBalance } from "./getBalance";
 
 function FetchBalance(){
@@ -60,8 +62,6 @@ const getBalance = async () => {
     console.log("Balance AMount", balance.balance?.amount);
 };
 
-balance.toNumber()
-
   return (
     <div className="fetch-container">
       {/* <div>
@@ -72,7 +72,7 @@ balance.toNumber()
       </div> */}
 
     <GetBalance 
-      // isConnectWallet={status === WalletStatus.Connected}
+      isConnectWallet={status === WalletStatus.Connected}
       balance={balance.toNumber()}
       isFetchingBalance={isFetchingBalance}
       // response={resp}
@@ -113,7 +113,7 @@ export function Footer() {
         height={"230px"}
       >
         <FetchBalance />
-        <SendToken />
+        {/* <SendToken /> */}
       </Box>
       <Box mb="$6">
         <Divider />

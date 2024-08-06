@@ -16,7 +16,7 @@ export const GetBalance = ({
     balance,
     // response,
     isFetchingBalance,
-    // isConnectWallet,
+    isConnectWallet,
     getBalanceButtonText,
     handleClickGetBalance,
     // sendTokensButtonText,
@@ -25,29 +25,20 @@ export const GetBalance = ({
     balance: number;
     // response?: string;
     isFetchingBalance: boolean;
-    // isConnectWallet: boolean;
+    isConnectWallet: boolean;
     // sendTokensButtonText?: string;
     // handleClickSendTokens: () => void;
     getBalanceButtonText?: string;
     handleClickGetBalance: () => void;
   }) => {
     // const { colorMode } = useColorMode();
-    // if (!isConnectWallet) {
-    //   return (
-    //     <Box boxShadow="0 0 2px #ccc, 0 0 5px -1px #ccc" borderRadius="lg" p={5}>
-    //       <div
-    //         as="h3"
-    //         textAlign="center"
-    //         fontSize={{ base: "xl", md: "2xl" }}
-    //         fontWeight="extrabold"
-    //         color="primary.400"
-    //         m={30}
-    //       >
-    //         Please Connect Your Wallet!
-    //       </Heading>
-    //     </Box>
-    //   );
-    // }
+    if (!isConnectWallet) {
+      return (
+        <div>
+            Please Connect Your Wallet!
+        </div>
+      );
+    }
     return (
       <section>
         <section>
