@@ -1,4 +1,4 @@
-This is a Cosmos App project bootstrapped with [`create-cosmos-app`](https://github.com/cosmology-tech/create-cosmos-app).
+This is a Cosmos App project bootstrapped with  
 
 ## Getting Started
 
