@@ -23,7 +23,7 @@ export const GetBalance = ({
     // handleClickSendTokens,
   }: {
     balance: number;
-    // response?: string;
+    response?: string;
     isFetchingBalance: boolean;
     isConnectWallet: boolean;
     // sendTokensButtonText?: string;
@@ -34,14 +34,13 @@ export const GetBalance = ({
     // const { colorMode } = useColorMode();
     if (!isConnectWallet) {
       return (
-        <div>
+        <div className="initial-text">
             Please Connect Your Wallet!
         </div>
       );
     }
     return (
-      <section>
-        <section>
+      <section className="getbalance-container">
           <h1>
             Balance:&ensp;
               {balance}
@@ -51,13 +50,12 @@ export const GetBalance = ({
           >
             {getBalanceButtonText || "Fetch Balance"}
           </button>
-        </section>
-        <section>
-          {/* <button>
+        {/* <section>
+          <button>
             {sendTokensButtonText || "Send Tokens (to self)"}
-          </button> */}
+          </button>
         </section>
-        {/* {response && (
+        {response && (
           <section>
             <h1>Result</h1>
             <div>
