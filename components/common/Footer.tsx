@@ -8,10 +8,14 @@ import {
   useColorModeValue,
 } from "@interchain-ui/react";
 import { useState } from 'react';
-// import { cosmos } from 'interchain';
+import { cosmos } from 'interchain';
 import { useChain } from '@cosmos-kit/react';
 import { dependencies, products, Project, CHAIN_NAME, chainassets,coin } from "@/config";
 import BigNumber from 'bignumber.js';
+
+import { WalletStatus } from '@cosmos-kit/core';
+
+import { GetBalance } from "./getBalance";
 
 function FetchBalance(){
   const { getSigningStargateClient, address, status, getRpcEndpoint } =
@@ -19,7 +23,7 @@ function FetchBalance(){
 
   const [balance, setBalance] = useState(new BigNumber(0));
   const [isFetchingBalance, setFetchingBalance] = useState(false);
-  const getBalance = async () => {
+const getBalance = async () => {
     if (!address) {
       setBalance(new BigNumber(0));
       setFetchingBalance(false);
@@ -34,36 +38,56 @@ function FetchBalance(){
     }
   
     // get RPC client
-    // const client = await cosmos.ClientFactory.createRPCQueryClient({
-    //   rpcEndpoint,
-    // });
+    const client = await cosmos.ClientFactory.createRPCQueryClient({
+      rpcEndpoint,
+    });
   
     // fetch balance
-    // const balance = await client.cosmos.bank.v1beta1.balance({
-    //   address,
-    //   denom: chainassets?.assets[0].base as string,
-    // });
-  
+    const balance = await client.cosmos.bank.v1beta1.balance({
+      address,
+      denom: chainassets?.assets[0].base as string,
+    });
+    
     // Get the display exponent
     // we can get the exponent from chain registry asset denom_units
     const exp = coin.denom_units.find((unit) => unit.denom === coin.display)
-      ?.exponent as number;
-  
+    ?.exponent as number;
+    
     // show balance in display values by exponentiating it
-    // const a = new BigNumber(balance.balance.amount);
-    // const amount = a.multipliedBy(10 ** -exp);
-    // setBalance(amount);
+    const a = new BigNumber(balance.balance?.amount);
+    const amount = a.multipliedBy(10 ** -exp);
+    setBalance(amount);
     setFetchingBalance(false);
+    console.log("Balance", balance);
+    console.log("Balance AMount", balance.balance?.amount);
 };
 
   return (
     <div className="fetch-container">
-      <div>
+      {/* <div>
         <h2>Balance</h2>
+        
+        <p>{balance.balance?.amount}px</p>
         <p>0</p>
-      </div>
+      </div> */}
 
-      <button>Fetch Balance</button>
+    <GetBalance 
+      isConnectWallet={status === WalletStatus.Connected}
+      balance={balance.toNumber()}
+      isFetchingBalance={isFetchingBalance}
+      // response={resp}
+      // sendTokensButtonText="Send Tokens"
+      // handleClickSendTokens={sendTokens(
+      //   getSigningStargateClient as () => Promise<SigningStargateClient>,
+      //   setResp as () => any,
+      //   address as string
+      // )}
+      handleClickGetBalance={() => {
+        setFetchingBalance(true);
+        getBalance();
+      }}
+    />
+
     </div>
   )
 }
@@ -89,7 +113,7 @@ export function Footer() {
         height={"230px"}
       >
         <FetchBalance />
-        <SendToken />
+        {/* <SendToken /> */}
       </Box>
       <Box mb="$6">
         <Divider />
