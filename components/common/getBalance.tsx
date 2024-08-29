@@ -35,7 +35,7 @@ export const GetBalance = ({
     if (!isConnectWallet) {
       return (
         <div className="initial-text">
-            Please Connect Your Wallet!
+            Please Connect the Wallet!
         </div>
       );
     }
