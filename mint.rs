@@ -12,7 +12,7 @@ fn main() {
         if input.to_lowercase() == "exit" {
             println!("Exiting...");
             break; 
-        }
+        }number
 
         let parts: Vec<&str> = input.split_whitespace().collect();
         if parts.len() != 3 {
