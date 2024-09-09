@@ -13,7 +13,7 @@ fn main() {
             println!("Exiting...");
             break; 
         }number
-
+     
         let parts: Vec<&str> = input.split_whitespace().collect();
         if parts.len() != 3 {
             println!("Invalid input. Please enter in the format: <number> <operator> <number>");
