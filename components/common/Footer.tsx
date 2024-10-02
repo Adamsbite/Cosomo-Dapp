@@ -16,7 +16,7 @@ import BigNumber from 'bignumber.js';
 import { WalletStatus } from '@cosmos-kit/core';
 
 import { GetBalance } from "./getBalance";
-
+ 
 function FetchBalance(){
   const { getSigningStargateClient, address, status, getRpcEndpoint } =
   useChain(CHAIN_NAME);
@@ -66,7 +66,7 @@ const getBalance = async () => {
     <div className="fetch-container">
       {/* <div>
         <h2>Balance</h2>
-        
+            
         <p>{balance.balance?.amount}px</p>
         <p>0</p>
       </div> */}
