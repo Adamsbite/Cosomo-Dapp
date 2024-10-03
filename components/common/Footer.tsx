@@ -56,12 +56,12 @@ const getBalance = async () => {
     // show balance in display values by exponentiating it
     const a = new BigNumber(balance.balance?.amount);
     const amount = a.multipliedBy(10 ** -exp);
-    setBalance(amount);
+    setBalance (amount);
     setFetchingBalance(false);
     console.log("Balance", balance);
     console.log("Balance AMount", balance.balance?.amount);
 };
-
+  
   return (
     <div className="fetch-container">
       {/* <div>
