@@ -11,7 +11,7 @@ import React, { MouseEventHandler, ReactNode } from "react";
 //   Text,
 //   useColorMode,
 // } from "@interchain-ui/react";
-
+   
 export const GetBalance = ({
     balance,
     // response,
@@ -66,4 +66,6 @@ export const GetBalance = ({
       </section>
     );
   };
+  
+
   
