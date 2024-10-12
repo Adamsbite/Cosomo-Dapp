@@ -53,11 +53,11 @@ const getBalance = async () => {
     const exp = coin.denom_units.find((unit) => unit.denom === coin.display)
     ?.exponent as number;
     
-    // show balance in display values by exponentiating it
+    //  show balance in display values by exponentiating it
     const a = new BigNumber(balance.balance?.amount);
     const amount = a.multipliedBy(10 ** -exp);
     setBalance (amount);
-    setFetchingBalance(false);
+    setFetchingBalance(false); 
     console.log("Balance", balance);
     console.log("Balance AMount", balance.balance?.amount);
 };
