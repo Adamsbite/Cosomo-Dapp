@@ -29,11 +29,11 @@ fn main() {
                 let result = parts[0].parse::<f32>().unwrap() - parts[2].parse::<f32>().unwrap();
                 println!("Result: {}", result);
             }
-            "*" => {
+            "*" => { 
                 let result = parts[0].parse::<f32>().unwrap() * parts[2].parse::<f32>().unwrap();
                 println!("Result: {}", result);
             }
-            "/" => {
+            "/" => { 
                 if parts[2].parse::<f32>().unwrap() == 0.0 {
                     println!("Cannot divide by zero.");
                 } else {
