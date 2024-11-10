@@ -2,7 +2,7 @@ use std::io::{self, Write};
 
 fn main() { 
     println!("Simple Calculator");
-    loop {
+    loop { 
         let mut input = String::new(); 
         print!("Enter operation (or 'exit' to quit): ");
         io::stdout().flush().unwrap(); // Ensure the prompt is displayed immediately
