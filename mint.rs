@@ -1,6 +1,6 @@
-use std::io::{self, Write};
+use std::io::{self, Write}; 
 
-fn main() { 
+fn main() {  
     println!("Simple Calculator");
     loop { 
         let mut input = String::new(); 
