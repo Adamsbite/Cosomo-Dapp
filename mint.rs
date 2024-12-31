@@ -1,7 +1,7 @@
 use std::io::{self, Write}; 
 
 fn main() {  
-    println!("Simple Calculator");
+    println!("Simple Calculator"); 
     loop { 
         let mut input = String::new(); 
         print!("Enter operation (or 'exit' to quit): ");
