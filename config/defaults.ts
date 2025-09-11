@@ -9,4 +9,4 @@ export const chainassets: AssetList = assets.find(
 
 export const coin: Asset = chainassets.assets.find(
     (asset) => asset.base === 'acudos'
-) as Asset;
+) as Asset; 
