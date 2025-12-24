@@ -3,7 +3,7 @@
 Title and Description
 Start with a clear title and a brief description of the application.
 
-# Create Cosmos App
+# Create Cosmos App 
 
 Create Cosmos App is a Next.js application designed to interact with the Cosmos blockchain ecosystem. It leverages the Cosmos Kit library to enable wallet connections and signing transactions across various chains supported by the Cosmos network.
 Getting Started
